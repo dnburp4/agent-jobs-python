@@ -1,0 +1,32 @@
+--- Anschreiben Output ---
+Timestamp: 2026-05-03 16:35:39
+
+Darío Nicolás Burbano Puertas
+Musterstraße 1
+78462 Konstanz
+Telefon: (+49) 15754241069
+E-Mail: dnburbanopuertas@gmail.com
+
+Porsche Lifestyle GmbH & Co. KG
+Recruiting Team
+Porschestraße 1
+71634 Ludwigsburg
+
+Konstanz, den 15. Juli 2024
+
+**Bewerbung für ein Praktikum IT & Digital Strategy (m/w/d), Kennziffer J000020422**
+
+Sehr geehrte Damen und Herren,
+
+mit großer Begeisterung bewerbe ich mich um das Praktikum im Bereich IT & Digital Strategy bei Porsche Lifestyle, wie in Ihrer Ausschreibung mit der Kennziffer J000020422 beschrieben. Die Aussicht, die faszinierende Lifestyle-Welt von Porsche aktiv mitzugestalten und meinen Beitrag zum digitalen Wandel zu leisten, motiviert mich außerordentlich. Ich bin hochmotiviert, mein im Studium erworbenes Wissen in einem dynamischen Umfeld anzuwenden und Ihr Unternehmen mit innovativen IT-Lösungen und einem tiefgreifenden Interesse an modernen Technologien wie AWS und Serverless Development zu unterstützen.
+
+Als engagierter Student des Studiengangs Business Information Systems (B. Sc.) an der HTWG Konstanz, den ich seit März 2023 absolviere, bringe ich ein fundiertes Verständnis für die Schnittstelle zwischen Wirtschaft und Informatik mit. Meine bisherigen Studienleistungen spiegeln mein ausgeprägtes analytisches Denkvermögen und meine digitale Affinität wider. Ich verfüge über erste Kenntnisse in Programmiersprachen wie Java und SQL sowie im Umgang mit R Programming und BPMN, die ich gezielt für die Gestaltung und Optimierung digitaler Geschäftsprozesse einsetzen kann. Der sichere Umgang mit MS Office ist für mich selbstverständlich, und ich bin bestrebt, meine Kenntnisse in agilen Arbeitsmethoden wie Scrum oder SAFe im Rahmen dieses Praktikums zu vertiefen.
+
+Meine ersten praktischen Erfahrungen im IT-Bereich sammelte ich als Minijobber im IT-Department Support des MVZ des Klinikum Konstanz, wo ich von August bis Dezember 2023 wertvolle Hands-On-Erfahrungen im IT-Betrieb sammeln konnte. Diese Tätigkeit schulte meine Dienstleistungsorientierung und meine Fähigkeit zur strukturierten Problemlösung. Zudem engagierte ich mich von März bis September 2024 im Finanzbereich des Bodensee Racing Teams, was meine eigenverantwortliche Arbeitsweise und meine Teamfähigkeit in einem projektorientierten Umfeld stärkte. Meine fließenden Deutsch- und guten Englischkenntnisse sowie meine spanische Muttersprache prädestinieren mich für die Zusammenarbeit in internationalen Teams und die Betreuung internationaler Porsche Design Stores.
+
+Gerne möchte ich mein Engagement und meine Lernbereitschaft ab August 2026 für die Dauer von sechs Monaten in Ihrem Team einbringen und Porsche Lifestyle in die digitale Zukunft begleiten. Ich freue mich sehr über die Möglichkeit, mich und meine Motivation in einem persönlichen Gespräch näher vorzustellen.
+
+Mit freundlichen Grüßen
+
+Darío Nicolás Burbano Puertas
+

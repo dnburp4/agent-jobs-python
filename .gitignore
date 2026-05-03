@@ -1,0 +1,32 @@
+# Secrets
+.env
+.env.*
+
+# Claude Code local config
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Projektdaten (persönliche PDFs, generierte Outputs)
+pdf_data/
+research_output.txt
