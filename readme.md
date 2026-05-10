@@ -22,7 +22,7 @@ Der User lädt seinen Lebenslauf hoch. Das LLM liest und versteht allgemein das 
 ## Anschreiben Beispiele vom User hochladen als Referenz hochladen
 
 ## Agent sucht Jobempfehlungen nach Profil
-Der LangChain-Agent nutzt zwei APIs (Arbeitsagentur und Arbeitnow) und sucht passende Stellenangebote.
+Der LangChain-Agent nutzt eine APIs (Arbeitnow) und sucht passende Stellenangebote.
 
 ## Agent bewertet die gefundenen Stellen
 Der Agent vergleicht das Profil mit jeder Stelle und vergibt einen Match-Score (0-100) mit kurzer Begründung. Die Stellen werden nach Score sortiert angezeigt.
@@ -49,14 +49,11 @@ flowchart TD
     A([Jobsuchende]) -->|Lebenslauf hochladen| B["PDF-Parser<br/>PyMuPDF"]
     B -->|Rohtext| C["Profil-Analyse<br/>LangChain + LLM"]
     C -->|Strukturiertes Profil| D["Job-Suche-Agent<br/>LangChain Agent"]
-    D -->|API-Anfrage| E1[Arbeitsagentur API]
     D -->|API-Anfrage| E2[Arbeitnow API]
-    E1 -->|Stellenangebote| M["Match-Scorer<br/>LangChain + LLM"]
-    E2 -->|Stellenangebote| M
+    E2 -->|Stellenangebote| M["Match-Scorer<br/>LangChain + LLM"]
     C -->|Profil| M
     M -->|Sortierte Stellen mit Score| F["Jobangebote anzeigen<br/>Streamlit UI"]
     F -->|Stelle auswählen| G["Anschreiben-Generator<br/>LangChain + LLM"]
-    C -->|Bewerberprofil| G
     G -->|Fertiges Anschreiben| H["Download<br/>PDF / DOCX"]
     G -->|Speichern| I[("SQL-Datenbank<br/>Supabase")]
 ```
