@@ -4,7 +4,7 @@
 Arbeitsagentur Jobsuche API: https://jobsuche.api.bund.dev/
 Arbeitnow API: https://www.arbeitnow.com/api/job-board-api
 
-# Dokumentation
+# Dokumentation Sahan
 
 Der PyJobAgent soll das Bewerbungsverfahren für Jobsuchende schneller und einfacher machen. Aktuell im Mai 2026 ist die Jobsituation in Deutschland für junge Absolventen nicht besonders einfach. Man muss im Durchschnitt viel mehr Bewerbungen als vor 5 Jahren senden, um faire Jobangebote zu bekommen.
 
@@ -15,7 +15,10 @@ Insbesondere ist das Erstellen eines passenden Anschreibens eine zeitaufwendige 
 
 Aus diesem Grund soll unser Agent diesen Prozess des Anschreibens agiler machen.
 
-# Workflow
+# C4 Diagramm Nicolas 
+Drawio
+
+# Workflow Sahan
 ## Lebenslauf hochladen
 Der User lädt seinen Lebenslauf hoch. Das LLM liest und versteht allgemein das Profil aus dem Lebenslauf.
 
@@ -35,14 +38,21 @@ Der User wählt die passende Stelle aus und dann erstellt der Agent das Anschrei
 ## SQL-Historie für bereits erstellte Anschreiben
 Der Agent speichert in einer SQL-Datenbank die Stellen, für die er bereits ein Anschreiben geschrieben hat.
 
-## Datenbank
+
+
+## Datenbank Nicolas
 Für die Speicherung der Userdaten und der Bewerbungs-Historie nutzen wir Supabase, wegen der einfachen Auth.
+
+
+# Technische Sachen Nicolas
+Librarires
+Architektur
+Datenbank Historie
 
 # Hosting in der Streamlit Community Cloud.
 Alternativen:
 - Vercel
 - Render
-
 
 ```mermaid
 flowchart TD

@@ -31,7 +31,6 @@ prompt = ChatPromptTemplate.from_messages(
             1. Rufe `lebenslauf` mit dem vom User gegebenen Pfad auf, um den CV-Text zu extrahieren.
             2. Rufe `search_jobs` auf, um die passende Stellenausschreibung zu erhalten.
             3. Rufe `generate_anschreiben` mit dem CV-Text und der Stellenbeschreibung auf, um das Anschreiben zu erzeugen.
-            4. Optional: Rufe `save_text_to_file` auf, um das Ergebnis zu speichern.
 
             Gib das Endergebnis exakt in diesem Format aus, ohne weiteren Text:
             {format_instructions}
