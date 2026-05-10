@@ -1,38 +1,28 @@
-Praktikum IT & Digital Strategy (m/w/d)
-Kennziffer:
-J000020422
-Einstiegsart:
-Praktikum
-Einsatzort:
-Ludwigsburg
-Gesellschaft:
-Porsche Lifestyle GmbH & Co. KG
+(Junior) IT Business Consultant - Finance & Administration (m/w/d)
+Zwei junge Frauen vor einem Laptop unterhalten sich mit einem Kollegen
+Standort
+Schönbeinstraße 5-6
+74076 Heilbronn
+Abteilung / Bereich
+IT - Consulting
+Einstiegslevel
+Berufserfahrene
+Arbeitsmodell
+Vollzeit
+Referenznummer
+1000
+Schwarz Digits schafft das technologische Fundament für digitale Entscheidungsfreiheit in Europa. Als IT- und Digitalsparte der Schwarz Gruppe entwickeln und verantworten wir einerseits die IT-Infrastrukturen für die Handelssparten Lidl und Kaufland sowie die Schwarz Produktion und PreZero. Gleichzeitig agieren wir als unabhängiger Anbieter am externen Markt, um Unternehmen in ganz Europa bei ihrer digitalen Transformation zu unterstützen. Unsere Kernleistungen bündeln wir in den Bereichen Cloud, Cyber Security, Data & AI, Communication und Workspace. Trage auch du zur digitalen Entscheidungsfreiheit in Europa bei.
 
-Aufgaben
-Du möchtest die spannende Lifestyle Welt von Porsche kennenlernen und mitgestalten – und bist darüber hinaus engagiert und strukturiert?
-Dann gehe mit Porsche Lifestyle, im Bereich IT & Digital Strategy, deine nächsten Schritte ins Berufsleben. 
+Bei uns arbeitest du an der Schnittstelle zwischen Agilität und Sicherheit: Du profitierst von den schnellen Entscheidungswegen, genießt echte Gestaltungsspielräume in deinen Projekten und baust dabei auf das stabile Fundament der Schwarz Gruppe.
 
-Im Praktikum IT & Digital Strategy (m/w/d) erwarten dich folgende Hauptaufgaben:  
-
-Begleitung von agilen IT-Projekten, die den digitalen Wandel für die Geschäftsleitung, das Personalwesen und für die IT-Bereiche umfassen
-Eigenständige Vorbereitung und IT-seitige Betreuung des Porsche Design Verkaufsevents "Order and Training Conference“
-Mitwirkung bei der Durchführung der monatlichen Projektsprints und der Betreuung der internationalen Porsche Design Stores im Hinblick auf IT-Themen
-Identifizierung von Optimierungspotentialen und Erarbeitung von innovativen, zukunftsorientierten Lösungsvorschlägen bezüglich der IT-Compliance und IT-Sicherheitsprozesse
-Mitwirkung bei der Weiterentwicklung der IT-Landschaft unter Berücksichtigung von Modellen wie z.B. Scrum oder SAFe.
-Unterstützung im Bereich Applikationsmanagement und PC-Koordination
-Eigenverantwortliche Umsetzung von kleinen IT-Vorhaben 
-
-Anforderungen
-Studium der (Wirtschaft s-) Informatik, BWL oder des Wirtschaftsingenieurwesens oder eines vergleichbaren Studiengangs mit der Vertiefung IT.
-
-Ausgeprägte digitale Affinität für aktuelle IT-Trends und innovative IT-Lösungen
-Erste Hands-On-Erfahrungen in IT-Projekt- oder IT-Betriebsteams sind wünschenswert
-Sicherer Umgang mit MS-Office und erste Kenntnisse agiler Arbeitsmethoden (z.B. SCRUM, SAFe) von Vorteil
-Gute Deutsch- und Englischkenntnisse
-Strukturierte und Eigenverantwortliche Arbeitsweise sowie Dienstleistungsorientierung
-Analytische Fähigkeiten und hohe Einsatzbereitschaft
-Freude in internationalen agilen Teams zu arbeiten
-Motivation, Porsche Design in die digitale Zukunft zu begleiten
- 
-
-Start: Ab August 2026 für 6 Monate 
+Deine Aufgaben
+Digitalisierung vorantreiben: Du berätst internationale Fachbereiche zu Prozessen des Rechnungseingangs und der Rechnungsprüfung
+Eigene Ideen einbringen: Du analysierst Prozesse und konzipierst Optimierungen der Applikationen innerhalb unserer Solution Driven Organisation
+Verantwortung übernehmen: Du erhältst von Beginn an eigene Themenbereiche und kannst richtungsgebende Entscheidungen treffen
+Austausch leben: Du koordinierst die Umsetzung von Projekten in Zusammenarbeit mit Fachabteilungen, Entwicklungsteams und externen Dienstleister
+Dein Profil
+Du verfügst über ein breites IT-Basiswissen und hast bereits erste Erfahrung mit SAP gesammelt, idealerweise in den Modulen SAP MM / SAP FI  oder einer entsprechenden Add-on-Lösung
+Du hast ein Studium der (Wirtschafts-) Informatik, Betriebswirtschaftslehre oder Vergleichbares erfolgreich abgeschlossen 
+Durch deine gute Auffassungsgabe bist du in der Lage, komplexe Zusammenhänge rasch zu erkennen und zeichnest dich durch gute Teamfähigkeit aus
+Du hast ein professionelles Auftreten sowie Kommunikationsgeschick und arbeitest gerne kunden- und serviceorientiert
+Du kommunizierst direkt und auf den Punkt, auf Deutsch und Englisch

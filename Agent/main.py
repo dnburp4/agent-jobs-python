@@ -32,8 +32,6 @@ prompt = ChatPromptTemplate.from_messages(
             2. Rufe `search_jobs` auf, um die passende Stellenausschreibung zu erhalten.
             3. Rufe `generate_anschreiben` mit dem CV-Text und der Stellenbeschreibung auf, um das Anschreiben zu erzeugen.
 
-            Gib das Endergebnis exakt in diesem Format aus, ohne weiteren Text:
-            {format_instructions}
             """,
         ),
         ("placeholder", "{chat_history}"),
@@ -60,7 +58,7 @@ cv_path = input("Sende bitte mir den Pfad von deinem CV: ")
 query = (
     f"Mein CV liegt unter diesem Pfad: {cv_path}. "
     "Bitte führe den kompletten Workflow aus: extrahiere den CV, hole die Stellenausschreibung "
-    "und generiere das Anschreiben. Gib am Ende das Ergebnis im geforderten JSON-Format zurück."
+    "und generiere das Anschreiben."
 )
 raw_response = agent_executor.invoke({"query": query, "chat_history": []})
 print("\n=== RAW OUTPUT ===")
