@@ -1,10 +1,10 @@
-langchain
-langchain-community
-langchain-google-genai
-langchain-groq
-python-dotenv
 pydantic
 pymupdf
 streamlit
 google-genai
 requests
+groq
+langgraph
+fpdf2
+supabase
+beautifulsoup4
