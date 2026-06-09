@@ -1,12 +1,18 @@
 from google import genai
 from google.genai import types
+from google.genai import errors as genai_errors
+import groq
+import json
 import os
+import re
+import time
 import pandas as pd
 import datetime
 
 from Agent_Langgraph.models import AnschreibenSchema
 
 genai_client = genai.Client()
+groq_client = groq.Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 
 def generate_anschreiben(
@@ -60,13 +66,46 @@ def generate_anschreiben(
     {job_description.to_string(index=False)}
     """
 
-    response = genai_client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=SYSTEM_PROMPT,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=AnschreibenSchema,
-        ),
-    )
+    # Versuch 1 + 2: Gemini mit einem Retry
+    for attempt in range(2):
+        try:
+            response = genai_client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=SYSTEM_PROMPT,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=AnschreibenSchema,
+                ),
+            )
+            return AnschreibenSchema.model_validate_json(response.text)
+        except (genai_errors.ServerError, genai_errors.ClientError) as e:
+            if attempt == 0:
+                print(f"Gemini Versuch 1 fehlgeschlagen ({e}), warte 3s und versuche erneut...")
+                time.sleep(3)
+            else:
+                print(f"Gemini Versuch 2 fehlgeschlagen ({e}), wechsle zu Groq...")
 
-    return AnschreibenSchema.model_validate_json(response.text)
+    # Fallback: Groq (llama-3.3-70b)
+    GROQ_SCHEMA = """Antworte NUR als JSON-Objekt mit genau dieser Struktur:
+{
+  "absender": {"name": "", "strasse": "", "ort": "", "telefon": "", "email": ""},
+  "empfaenger": {"ansprechsartner": null, "unternehmen": "", "strasse": null, "ort": ""},
+  "datum": "",
+  "betreff": "",
+  "anrede": "",
+  "absaetze": ["Absatz 1", "Absatz 2", "Absatz 3", "Absatz 4"],
+  "abschluss": "",
+  "unterschrift": ""
+}"""
+
+    completion = groq_client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT + "\n\n" + GROQ_SCHEMA},
+            {"role": "user", "content": "Erstelle jetzt das Anschreiben als JSON."},
+        ],
+        temperature=0.3,
+    )
+    raw = completion.choices[0].message.content
+    cleaned = re.sub(r"```json|```", "", raw).strip()
+    return AnschreibenSchema.model_validate_json(cleaned)

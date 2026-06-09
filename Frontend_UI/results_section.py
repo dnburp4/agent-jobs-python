@@ -1,6 +1,7 @@
 from __future__ import annotations
 import pandas as pd
 import streamlit as st
+from Agent_Langgraph.db import save_bewerbung
 from Agent_Langgraph.download_pdf import generate_pdf
 from Agent_Langgraph.models import Absender, AnschreibenSchema, Empfaenger
 from Agent_Langgraph.state import JobAgentState
@@ -99,9 +100,18 @@ def render_results(state: JobAgentState) -> None:
     )
 
     pdf_bytes = generate_pdf(edited_anschreiben)
-    st.download_button(
+    if st.download_button(
         label="Als PDF herunterladen",
         data=pdf_bytes,
         file_name="anschreiben.pdf",
         mime="application/pdf",
-    )
+    ):
+        user_id = st.session_state.get("user_id")
+        if user_id:
+            save_bewerbung(
+                user_id=user_id,
+                job_title=edited_anschreiben.betreff,
+                company=edited_anschreiben.empfaenger.unternehmen,
+                anschreiben=edited_anschreiben.model_dump(),
+            )
+            st.session_state.pop("bewerbungen_cache", None)

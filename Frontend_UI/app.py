@@ -16,7 +16,7 @@ try:
 except Exception:
     pass  # Lokal ohne secrets.toml: os.environ bereits durch .env oder Shell gesetzt
 
-from Agent_Langgraph.db import sign_in, sign_up, sign_out
+from Agent_Langgraph.db import sign_in, sign_up, sign_out, get_bewerbungen
 
 st.set_page_config(page_title="PyJobAgent", page_icon="💼", layout="wide")
 
@@ -61,3 +61,35 @@ pg = st.navigation([
     st.Page("pages/anschreiben_generator_page.py", title="Anschreiben Generator"),
 ])
 pg.run()
+
+# --- Sidebar: Profil + Bewerbungs-Historie ---
+user_id = st.session_state.get("user_id")
+if user_id:
+    with st.sidebar:
+        # Profil-Info
+        profile = st.session_state.get("saved_profile")
+        if profile and profile.get("candidate_profile"):
+            cp = profile["candidate_profile"]
+            st.divider()
+            st.caption("Mein Profil")
+            st.markdown(f"**{cp.get('name', '—')}**")
+            st.caption(cp.get("education", ""))
+            job_type = cp.get("job_type", "")
+            if job_type:
+                st.caption(f"Sucht: {job_type}")
+            skills = cp.get("skills", [])
+            if skills:
+                st.markdown(" ".join(f"`{s}`" for s in skills[:6]))
+
+        # Bewerbungs-Historie
+        st.divider()
+        st.caption("Letzte Bewerbungen")
+        if "bewerbungen_cache" not in st.session_state:
+            st.session_state["bewerbungen_cache"] = get_bewerbungen(user_id)
+        bewerbungen = st.session_state["bewerbungen_cache"]
+        if bewerbungen:
+            for b in bewerbungen:
+                datum = b["created_at"][:10]
+                st.markdown(f"**{b['job_title']}**  \n{b['company']} · {datum}")
+        else:
+            st.caption("Noch keine Bewerbungen gespeichert.")

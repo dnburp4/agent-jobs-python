@@ -50,3 +50,27 @@ def save_profile(user_id: str, cv_text: str, candidate_profile: dict) -> None:
             "updated_at": "now()",
         }
     ).execute()
+
+
+def save_bewerbung(user_id: str, job_title: str, company: str, anschreiben: dict) -> None:
+    get_client().table("bewerbungen").insert(
+        {
+            "user_id": user_id,
+            "job_title": job_title,
+            "company": company,
+            "anschreiben": anschreiben,
+        }
+    ).execute()
+
+
+def get_bewerbungen(user_id: str) -> list[dict]:
+    res = (
+        get_client()
+        .table("bewerbungen")
+        .select("job_title, company, created_at")
+        .eq("user_id", user_id)
+        .order("created_at", desc=True)
+        .limit(10)
+        .execute()
+    )
+    return res.data if res else []
