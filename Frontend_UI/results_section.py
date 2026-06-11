@@ -12,13 +12,17 @@ def render_results(state: JobAgentState) -> None:
     st.divider()
 
     # --- Beste Stelle ---
+    job_url: str = ""
     best_job: pd.DataFrame | None = state.get("best_job")
     if best_job is not None and not best_job.empty:
         row = best_job.iloc[0]
+        job_url = row.get("url", "") or ""
         st.subheader("Beste Stelle")
         col1, col2 = st.columns([3, 1])
         with col1:
             st.markdown(f"**{row['title']}** @ {row['company_name']}")
+            if job_url:
+                st.markdown(f"[Stelle auf Arbeitnow ansehen]({job_url})")
             st.markdown(f"📍 {row['location']}")
             st.markdown(f"{row['description']}")
             st.markdown(f"_{row.get('begrundung', '')}_")
@@ -29,10 +33,17 @@ def render_results(state: JobAgentState) -> None:
     ranked_jobs: list[dict] = state.get("ranked_jobs", [])
     if ranked_jobs:
         st.subheader("Alle bewerteten Stellen")
-        df = pd.DataFrame(ranked_jobs)[
-            ["title", "company_name", "location", "matching_score"]
-        ].sort_values("matching_score", ascending=False)
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        df_all = pd.DataFrame(ranked_jobs).sort_values("matching_score", ascending=False)
+        show_cols = ["title", "company_name", "location", "matching_score"]
+        if "url" in df_all.columns:
+            st.dataframe(
+                df_all[show_cols + ["url"]],
+                use_container_width=True,
+                hide_index=True,
+                column_config={"url": st.column_config.LinkColumn("Bewerben")},
+            )
+        else:
+            st.dataframe(df_all[show_cols], use_container_width=True, hide_index=True)
 
     # --- Anschreiben ---
     anschreiben: AnschreibenSchema | None = state.get("anschreiben")
@@ -100,18 +111,24 @@ def render_results(state: JobAgentState) -> None:
     )
 
     pdf_bytes = generate_pdf(edited_anschreiben)
-    if st.download_button(
-        label="Als PDF herunterladen",
-        data=pdf_bytes,
-        file_name="anschreiben.pdf",
-        mime="application/pdf",
-    ):
-        user_id = st.session_state.get("user_id")
-        if user_id:
-            save_bewerbung(
-                user_id=user_id,
-                job_title=edited_anschreiben.betreff,
-                company=edited_anschreiben.empfaenger.unternehmen,
-                anschreiben=edited_anschreiben.model_dump(),
-            )
-            st.session_state.pop("bewerbungen_cache", None)
+    btn_col1, btn_col2 = st.columns([1, 1])
+    with btn_col1:
+        if st.download_button(
+            label="Als PDF herunterladen",
+            data=pdf_bytes,
+            file_name="anschreiben.pdf",
+            mime="application/pdf",
+            use_container_width=True,
+        ):
+            user_id = st.session_state.get("user_id")
+            if user_id:
+                save_bewerbung(
+                    user_id=user_id,
+                    job_title=edited_anschreiben.betreff,
+                    company=edited_anschreiben.empfaenger.unternehmen,
+                    anschreiben=edited_anschreiben.model_dump(),
+                )
+                st.session_state.pop("bewerbungen_cache", None)
+    with btn_col2:
+        if job_url:
+            st.link_button("Jetzt bewerben", job_url, use_container_width=True)

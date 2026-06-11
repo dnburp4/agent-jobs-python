@@ -53,9 +53,9 @@ def job_search_node(state: JobAgentState) -> dict:
     ranked = matching_score(jobs_filtered=filtered, cv_candidate=cv_text)
 
     df_ranked = pd.DataFrame(ranked)
-    best_job = df_ranked.nlargest(1, "matching_score")[
-        ["title", "company_name", "location", "matching_score", "begrundung", "description"]
-    ]
+    available = ["title", "company_name", "location", "matching_score", "begrundung", "description", "url"]
+    cols = [c for c in available if c in df_ranked.columns]
+    best_job = df_ranked.nlargest(1, "matching_score")[cols]
 
     return {
         "ranked_jobs": ranked,
