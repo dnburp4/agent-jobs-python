@@ -1,22 +1,48 @@
+import unicodedata
+
 from fpdf import FPDF
 from Agent_Langgraph.models import AnschreibenSchema
 
 _UNICODE_MAP = str.maketrans({
-    '–': '-',    # en dash
-    '—': '-',    # em dash
-    '‘': "'",    # linkes einfaches Anführungszeichen
-    '’': "'",    # rechtes einfaches Anführungszeichen
-    '“': '"',    # linkes doppeltes Anführungszeichen
-    '”': '"',    # rechtes doppeltes Anführungszeichen
-    '…': '...',  # Auslassungspunkte
-    ' ': ' ',    # geschütztes Leerzeichen
+    '\u2010': '-',    # Bindestrich
+    '\u2011': '-',    # geschützter Bindestrich
+    '\u2012': '-',    # figure dash
+    '\u2013': '-',    # en dash
+    '\u2014': '-',    # em dash
+    '\u2015': '-',    # horizontal bar
+    '\u2212': '-',    # Minuszeichen
+    '\u2018': "'",    # linkes einfaches Anführungszeichen
+    '\u2019': "'",    # rechtes einfaches Anführungszeichen
+    '\u201a': "'",    # einfaches Anführungszeichen unten
+    '\u201c': '"',    # linkes doppeltes Anführungszeichen
+    '\u201d': '"',    # rechtes doppeltes Anführungszeichen
+    '\u201e': '"',    # deutsches Anführungszeichen unten
+    '\u2026': '...',  # Auslassungspunkte
+    '\u2022': '-',    # Aufzählungspunkt
+    '\u2192': '->',   # Pfeil nach rechts
+    '\u00a0': ' ',    # geschütztes Leerzeichen
+    '\u202f': ' ',    # schmales geschütztes Leerzeichen
+    '\u2009': ' ',    # schmales Leerzeichen
+    '\u200b': '',     # Leerzeichen ohne Breite
+    '\u2060': '',     # word joiner
+    '\ufeff': '',     # BOM
 })
 
 
 def _safe(text: str | None) -> str:
+    """Macht Text kompatibel mit den Standard-PDF-Schriften (nur Latin-1)."""
     if not text:
         return ""
-    return text.translate(_UNICODE_MAP)
+    text = text.translate(_UNICODE_MAP)
+    result = []
+    for ch in text:
+        try:
+            ch.encode("latin-1")
+            result.append(ch)
+        except UnicodeEncodeError:
+            # z. B. zerlegte Akzente -> Grundbuchstabe; sonst Zeichen weglassen
+            result.append(unicodedata.normalize("NFKD", ch).encode("latin-1", "ignore").decode("latin-1"))
+    return "".join(result)
 
 
 _LEFT = 25
