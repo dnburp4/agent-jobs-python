@@ -44,7 +44,7 @@ def matching_score(jobs_filtered: pd.DataFrame, cv_candidate: str) -> str:
                 "content": user_input,
             }
         ],
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         temperature=0.1,
     )
 

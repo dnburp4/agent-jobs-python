@@ -77,7 +77,7 @@ def keys_words_create(user_input: str, filename: str = "") -> CandidateProfile:
                 "content": user_input,
             }
         ],
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         temperature=0.1,  # niedrig für konsistentes JSON
     )
 

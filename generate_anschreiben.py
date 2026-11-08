@@ -85,7 +85,7 @@ def generate_anschreiben(
             else:
                 print(f"Gemini Versuch 2 fehlgeschlagen ({e}), wechsle zu Groq...")
 
-    # Fallback: Groq (llama-3.3-70b)
+    # Fallback: Groq (gpt-oss-120b)
     GROQ_SCHEMA = """Antworte NUR als JSON-Objekt mit genau dieser Struktur:
 {
   "absender": {"name": "", "strasse": "", "ort": "", "telefon": "", "email": ""},
@@ -99,7 +99,7 @@ def generate_anschreiben(
 }"""
 
     completion = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT + "\n\n" + GROQ_SCHEMA},
             {"role": "user", "content": "Erstelle jetzt das Anschreiben als JSON."},
